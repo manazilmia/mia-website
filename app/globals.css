@@ -2,25 +2,144 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1e150c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-manrope);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 64px;
+}
+
+@media (min-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 57px;
   }
 }
 
 body {
+  margin: 0;
+  overflow-x: clip;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@keyframes curriculum-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.curriculum-panel-enter {
+  animation: curriculum-panel-enter 280ms ease-out;
+}
+
+@keyframes book-page-open-next {
+  from {
+    transform: rotateY(-88deg) scaleX(0.96);
+    filter: brightness(0.72);
+    box-shadow: -42px 0 56px rgba(30, 21, 12, 0.4);
+  }
+  to {
+    transform: rotateY(0deg) scaleX(1);
+    filter: brightness(1);
+    box-shadow: 0 0 0 rgba(30, 21, 12, 0);
+  }
+}
+
+@keyframes book-page-open-previous {
+  from {
+    transform: rotateY(88deg) scaleX(0.96);
+    filter: brightness(0.72);
+    box-shadow: 42px 0 56px rgba(30, 21, 12, 0.4);
+  }
+  to {
+    transform: rotateY(0deg) scaleX(1);
+    filter: brightness(1);
+    box-shadow: 0 0 0 rgba(30, 21, 12, 0);
+  }
+}
+
+@keyframes book-page-fold-fade {
+  0% {
+    opacity: 0.72;
+  }
+  55% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.book-page-next,
+.book-page-previous {
+  will-change: transform, filter, box-shadow;
+  animation-duration: 850ms;
+  animation-timing-function: cubic-bezier(0.22, 0.72, 0.16, 1);
+  animation-fill-mode: both;
+}
+
+.book-page-next {
+  transform-origin: left center;
+  animation-name: book-page-open-next;
+}
+
+.book-page-previous {
+  transform-origin: right center;
+  animation-name: book-page-open-previous;
+}
+
+.book-page-next::after,
+.book-page-previous::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  animation: book-page-fold-fade 850ms ease-out both;
+}
+
+.book-page-next::after {
+  background: linear-gradient(90deg, rgba(30, 21, 12, 0.5), transparent 30%);
+}
+
+.book-page-previous::after {
+  background: linear-gradient(270deg, rgba(30, 21, 12, 0.5), transparent 30%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curriculum-panel-enter,
+  .book-page-next,
+  .book-page-previous,
+  .book-page-next::after,
+  .book-page-previous::after {
+    animation: none;
+  }
 }

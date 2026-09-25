@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="football-pitch">
+<path id="Vector" d="M1.66667 7.14286C1.66667 5.34703 1.66667 4.44912 2.15482 3.89122C2.64297 3.33333 3.42865 3.33333 5 3.33333H15C16.5713 3.33333 17.357 3.33333 17.8452 3.89122C18.3333 4.44912 18.3333 5.34703 18.3333 7.14286V12.8572C18.3333 14.653 18.3333 15.5509 17.8452 16.1087C17.357 16.6667 16.5713 16.6667 15 16.6667H5C3.42865 16.6667 2.64297 16.6667 2.15482 16.1087C1.66667 15.5509 1.66667 14.653 1.66667 12.8572V7.14286Z" stroke="#6E6255" stroke-width="1.25" stroke-linejoin="round"/>
+<path id="Vector_2" d="M10 11.6667C10.9205 11.6667 11.6667 10.9205 11.6667 10C11.6667 9.07953 10.9205 8.33333 10 8.33333C9.07953 8.33333 8.33333 9.07953 8.33333 10C8.33333 10.9205 9.07953 11.6667 10 11.6667Z" stroke="#6E6255" stroke-width="1.25" stroke-linejoin="round"/>
+<path id="Vector_3" d="M10 8.33333V4.16667M10 11.6667V15.8333" stroke="#6E6255" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M18.3333 7.5H16.25C15.7898 7.5 15.4167 7.8731 15.4167 8.33333V11.6667C15.4167 12.1269 15.7898 12.5 16.25 12.5H18.3333" stroke="#6E6255" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" d="M1.66667 7.5H3.75C4.21023 7.5 4.58333 7.8731 4.58333 8.33333V11.6667C4.58333 12.1269 4.21023 12.5 3.75 12.5H1.66667" stroke="#6E6255" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
