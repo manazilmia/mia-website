@@ -1,8 +1,11 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #ffffff;
   --foreground: #1e150c;
+  --font-editorial: Iowan Old Style, Charter, Bitstream Charter, Sitka Text,
+    Cambria, serif;
 }
 
 @theme inline {
@@ -10,6 +13,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-display: var(--font-manrope);
+  --font-serif: var(--font-editorial);
+  --font-arabic: var(--font-thmanyah-serif);
 }
 
 * {
@@ -36,6 +41,274 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+.kajian-carousel-track {
+  scrollbar-width: none;
+}
+
+.kajian-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.article-content [lang="ar"] {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-thmanyah-serif), serif;
+  letter-spacing: normal;
+}
+
+.article-content p[lang="ar"] {
+  font-size: 22px;
+  line-height: 1.9;
+}
+
+@media (min-width: 640px) {
+  .article-content p[lang="ar"] {
+    font-size: 24px;
+  }
+}
+
+.article-content blockquote[lang="ar"] {
+  border-right-width: 3px;
+  border-left-width: 0;
+  padding-right: 1.5rem;
+  padding-left: 0;
+}
+
+.notion-document-shell {
+  min-height: calc(100vh - 150px);
+  padding: 44px 24px 160px;
+}
+
+.notion-document-canvas {
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+body:has(button[aria-label="Exit focus mode (show navigation)"])
+  .notion-document-shell {
+  width: min(1100px, calc(100vw - 96px));
+  margin-inline-start: 50%;
+  transform: translateX(-50%);
+}
+
+.notion-title-input input {
+  min-height: 64px;
+  border: 0 !important;
+  padding: 8px 0 !important;
+  outline: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  font-family: var(--font-manrope), sans-serif !important;
+  font-size: clamp(26px, 2.6vw, 32px) !important;
+  font-weight: 750 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.045em;
+}
+
+.notion-title-input input::placeholder {
+  color: currentColor;
+  opacity: 0.25;
+}
+
+.notion-title-input [data-border] {
+  box-shadow: none !important;
+}
+
+.notion-properties {
+  margin-top: 22px;
+}
+
+.notion-properties-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  padding: 7px 5px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  opacity: 0.58;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    opacity 160ms ease;
+}
+
+.notion-properties-toggle:hover {
+  border-radius: 6px;
+  background: color-mix(in srgb, currentColor 7%, transparent);
+  opacity: 0.9;
+}
+
+.notion-properties-toggle svg:first-child {
+  transition: transform 160ms ease;
+}
+
+.notion-properties-toggle svg:first-child.is-collapsed {
+  transform: rotate(-90deg);
+}
+
+.notion-properties-list {
+  display: grid;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.notion-property-row {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  align-items: center;
+  min-height: 42px;
+  column-gap: 18px;
+}
+
+.notion-property-row-cover {
+  align-items: start;
+}
+
+.notion-property-row-cover [data-testid="image-input"] {
+  width: min(190px, 100%);
+}
+
+.notion-property-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  color: inherit;
+  font-size: 14px;
+  opacity: 0.56;
+}
+
+.notion-property-input {
+  min-width: 0;
+}
+
+.notion-property-input [data-ui="TextInput"],
+.notion-property-input [data-ui="TextInput"] input {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.notion-property-input [data-ui="TextInput"] input {
+  padding-inline: 0 !important;
+}
+
+.notion-property-input [data-border] {
+  box-shadow: none !important;
+}
+
+.notion-editor-divider {
+  height: 1px;
+  margin-block: 30px 18px;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.notion-portable-editor {
+  position: relative;
+  min-height: 80vh;
+}
+
+.notion-editor-placeholder {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 76px;
+  inset-inline-start: 7px;
+  color: inherit;
+  font-family: var(--font-editorial), serif;
+  font-size: 20px;
+  line-height: 1.7;
+  opacity: 0.32;
+  pointer-events: none;
+}
+
+.notion-portable-editor > :first-child {
+  min-height: 80vh;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.notion-portable-editor [data-ui="Card"] {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.notion-portable-editor [data-border] {
+  box-shadow: none !important;
+}
+
+.notion-portable-editor [class*="ToolbarCard"] {
+  border-block: 1px solid color-mix(in srgb, currentColor 12%, transparent) !important;
+  background: transparent !important;
+}
+
+.notion-portable-editor [data-testid="pt-input-placeholder"] {
+  visibility: hidden;
+}
+
+.notion-portable-editor [contenteditable="true"] {
+  min-height: 74vh;
+  padding: 22px 6px 80px !important;
+  caret-color: #855f38;
+}
+
+.notion-portable-editor [contenteditable="true"]:focus {
+  outline: none;
+}
+
+.notion-block-preview {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  min-height: 54px;
+  padding: 15px 17px;
+  color: inherit;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.notion-callout-preview {
+  border-radius: 9px;
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+
+.notion-callout-preview svg {
+  color: #a77542;
+}
+
+.notion-accordion-preview {
+  align-items: center;
+  border-block: 1px solid color-mix(in srgb, currentColor 11%, transparent);
+}
+
+@media (max-width: 720px) {
+  .notion-document-shell {
+    padding: 28px 20px 120px;
+  }
+
+  .notion-title-input input {
+    min-height: 56px;
+    font-size: 26px !important;
+  }
+
+  .notion-property-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding-block: 7px;
+  }
+
+  .notion-property-row-cover [data-testid="image-input"] {
+    width: 100%;
+  }
 }
 
 @layer base {

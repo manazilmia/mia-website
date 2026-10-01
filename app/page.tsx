@@ -2,6 +2,8 @@ import Image from "next/image";
 
 import { ActivityPill, type ActivityIconName } from "@/components/activity-pill";
 import { CurriculumShowcase } from "@/components/curriculum-showcase";
+import { KajianSchedule } from "@/components/kajian-schedule";
+import { LatestArticles } from "@/components/latest-articles";
 import { RegistrationCta } from "@/components/registration-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -10,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const tahfizhFeatures = [
-  { icon: "/figma/target.svg", title: "Target", body: "Minimal 10 juz mutqin" },
+  { icon: "/figma/target.svg", title: "Target", body: "Minimal 10 Juz mutqin per 3 tahun di setiap jenjang" },
   {
     icon: "/figma/halaqah.svg",
     title: "Halaqah",
@@ -220,7 +222,7 @@ export default function Home() {
       <section id="tentang" className="relative flex flex-col overflow-hidden bg-[#f1ece9] lg:block lg:h-[700px]">
         <div className="relative order-2 h-[280px] w-full sm:h-[360px] lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[886px]">
           <Image
-            src="/figma/mia-hero-tall.jpg"
+            src="/figma/hero-tall.png"
             alt="Kompleks asrama Manazil Ibnu Abbas"
             fill
             priority
@@ -236,7 +238,7 @@ export default function Home() {
               Membentuk Generasi Qurani, Berilmu, dan Berkarakter Islami
             </h1>
             <p className="mt-6 w-full max-w-[540px] text-sm font-medium leading-[22px] text-[#4C4238] lg:w-[476px]">
-              Ma’had Tahfizh Al-Qur’an setingkat SMP putra di Kota Batu dengan program
+              Ma’had Tahfizh Al-Qur’an setingkat SMP & SMA putra di Kota Batu dengan program
               Tahfizh Al-Qur’an, Bahasa Arab, Ilmu Syar’i, serta pendidikan formal.
             </p>
             <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
@@ -340,7 +342,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Pengajar"
               title="Dibimbing oleh Tenaga Pengajar dengan Latar Pendidikan Syar’i"
-              description="Pengajar MIA memiliki latar pendidikan antara lain dari LIPIA Jakarta, STAIN Kediri, Ma’had Ar Rosyad Kediri, Darul Hadits Yaman, dan STDI Imam Syafi’i Jember."
+              description="Pengajar MIA memiliki latar pendidikan antara lain dari LIPIA Jakarta, STAIN Kediri, Ma’had Ar Rosyad Kediri, Darul Hadits Yaman, STDI Imam Syafi’i Jember, dan STAI Ali bin Abi Thalib Surabaya."
             />
           </div>
           <div className="w-full lg:w-[511px]">
@@ -353,8 +355,10 @@ export default function Home() {
                 className="absolute -right-[121px] -top-[124px]"
                 aria-hidden
               />
-              <Image src="/figma/teacher.svg" alt="" width={24} height={24} aria-hidden />
-              <p className="mt-2 text-sm font-bold leading-[22px] text-[#4C4238]">7 Tenaga Pengajar</p>
+              <span className="inline-flex size-10 items-center justify-center rounded-full bg-[#855f38]/10">
+                <Image src="/figma/teacher.svg" alt="" width={22} height={22} aria-hidden />
+              </span>
+              <p className="mt-2 text-sm font-bold leading-[22px] text-[#4C4238]">Tenaga Pengajar</p>
               <p className="mt-2 text-[13px] leading-4 text-[#4C4238]">
                 Membimbing proses pembelajaran ilmu syar’i dan Bahasa Arab sesuai bidang keahlian.
               </p>
@@ -369,8 +373,10 @@ export default function Home() {
                   className="absolute -right-[113px] -top-[176px]"
                   aria-hidden
                 />
-                <Image src="/figma/mentor.svg" alt="" width={24} height={24} aria-hidden />
-                <p className="mt-2 text-sm font-bold leading-[22px] text-[#4C4238]">3 Musyrif</p>
+                <span className="inline-flex size-10 items-center justify-center rounded-full bg-[#048f51]/10">
+                  <Image src="/figma/mentor.svg" alt="" width={22} height={22} aria-hidden />
+                </span>
+                <p className="mt-2 text-sm font-bold leading-[22px] text-[#4C4238]">Musyrif</p>
                 <p className="mt-2 text-[13px] leading-4 text-[#4C4238]">
                   Mendampingi keseharian santri serta pembinaan adab, ibadah, dan kedisiplinan.
                 </p>
@@ -384,8 +390,10 @@ export default function Home() {
                   className="absolute -right-[113px] -top-[176px]"
                   aria-hidden
                 />
-                <Image src="/figma/mentor.svg" alt="" width={24} height={24} aria-hidden />
-                <p className="mt-2 text-sm font-bold leading-[22px] text-[#4C4238]">2 Muhaffizh</p>
+                <span className="inline-flex size-10 items-center justify-center rounded-full bg-[#048f51]/10">
+                  <Image src="/figma/mentor.svg" alt="" width={22} height={22} aria-hidden />
+                </span>
+                <p className="mt-2 text-sm font-bold leading-[22px] text-[#4C4238]">Muhaffizh</p>
                 <p className="mt-2 text-[13px] leading-4 text-[#4C4238]">
                   Membimbing hafalan, muraja’ah, serta menjaga kualitas bacaan Al-Qur’an.
                 </p>
@@ -422,7 +430,10 @@ export default function Home() {
         </div>
       </SectionFrame>
 
+    
       <RegistrationCta />
+        <KajianSchedule />
+      <LatestArticles />
       <SiteFooter />
     </main>
   );

@@ -1,16 +1,19 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 
 const navigation = [
-  { label: "Tentang kami", href: "#tentang" },
-  { label: "Program", href: "#program" },
-  { label: "Kurikulum", href: "#kurikulum" },
-  { label: "Fasilitas", href: "#fasilitas" },
-  { label: "Kehidupan Santri", href: "#kehidupan" },
+  { label: "Tentang kami", href: "/#tentang" },
+  { label: "Program", href: "/#program" },
+  { label: "Kurikulum", href: "/#kurikulum" },
+  { label: "Fasilitas", href: "/#fasilitas" },
+  { label: "Kehidupan Santri", href: "/#kehidupan" },
+  { label: "Kajian", href: "/#kajian" },
+  { label: "Artikel", href: "/artikel" },
 ];
 
 export function SiteHeader() {
@@ -23,8 +26,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#dbd7d3] bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex h-[64px] w-full max-w-[1200px] items-center justify-between px-6 md:px-10 lg:h-[57px] lg:px-10">
-        <a
-          href="#tentang"
+        <Link
+          href="/"
           className="flex min-w-0 items-center gap-3 sm:gap-4"
           aria-label="Manazil Ibnu Abbas"
           onClick={closeMenu}
@@ -38,7 +41,7 @@ export function SiteHeader() {
             className="h-9 w-[45px] shrink-0 object-contain lg:h-10 lg:w-[50px]"
           />
           <span className="truncate text-sm font-semibold">Manazil Ibnu Abbas</span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-[22px] text-xs lg:flex" aria-label="Navigasi utama">
           {navigation.map((item) => (
@@ -50,7 +53,7 @@ export function SiteHeader() {
               {item.label}
             </a>
           ))}
-          <Button href="#pendaftaran" size="sm">
+          <Button href="/#pendaftaran" size="sm">
             Info pendaftaran
           </Button>
         </nav>
@@ -106,7 +109,7 @@ export function SiteHeader() {
               {item.label}
             </a>
           ))}
-          <Button href="#pendaftaran" className="mt-4 w-full" onClick={closeMenu}>
+          <Button href="/#pendaftaran" className="mt-4 w-full" onClick={closeMenu}>
             Info pendaftaran
           </Button>
         </nav>

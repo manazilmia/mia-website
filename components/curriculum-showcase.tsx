@@ -28,7 +28,7 @@ export const curriculumItems: CurriculumItem[] = [
     label: "Tahfizh Al-Qur’an",
     icon: Quran01Icon,
     description:
-      "Hafalan minimal 10 juz mutqin disertai pembelajaran dan penguatan tajwid.",
+      "Hafalan minimal 10 juz mutqin dalam 3 tahun di setiap jenjang, disertai pembelajaran dan penguatan tajwid.",
     image: "/figma/campus.png",
     imageAlt: "Santri belajar bersama di ruang kelas terbuka",
   },

@@ -1,19 +1,38 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const footerMenu = [
-  { label: "Tentang kami", href: "#tentang" },
-  { label: "Program", href: "#program" },
-  { label: "Kurikulum", href: "#kurikulum" },
-  { label: "Kehidupan Santri", href: "#kehidupan" },
-  { label: "Fasilitas", href: "#fasilitas" },
-  { label: "Info pendaftaran", href: "#pendaftaran" },
+  { label: "Tentang kami", href: "/#tentang" },
+  { label: "Program", href: "/#program" },
+  { label: "Kurikulum", href: "/#kurikulum" },
+  { label: "Kehidupan Santri", href: "/#kehidupan" },
+  { label: "Fasilitas", href: "/#fasilitas" },
+  { label: "Artikel", href: "/artikel" },
+  { label: "Info pendaftaran", href: "/#pendaftaran" },
 ];
 
 // Replace these placeholder anchors with the official social-media URLs.
 const socialLinks = [
   { label: "Instagram", icon: "instagram", href: "#footer" },
-  { label: "YouTube", icon: "youtube", href: "#footer" },
+  {
+    label: "YouTube",
+    icon: "youtube",
+    href: "https://shortlink.win/1EboE",
+  },
   { label: "Facebook", icon: "facebook", href: "#footer" },
+];
+
+const registrationContacts = [
+  {
+    name: "Ust. Zaid",
+    phone: "0812 1764 4902",
+    whatsappHref: "https://wa.me/6281217644902",
+  },
+  {
+    name: "Ust. Muzaki",
+    phone: "0853 5082 1751",
+    whatsappHref: "https://wa.me/6285350821751",
+  },
 ];
 
 function SocialIcon({ name }: { name: string }) {
@@ -51,9 +70,9 @@ export function SiteFooter() {
   return (
     <footer id="footer" className="bg-[#1e150c] text-[#f1ece9]">
       <div className="mx-auto w-full max-w-[1200px] border-x-0 border-white/10 px-6 pb-8 pt-14 md:border-x md:px-10 md:pt-16 lg:px-[60px]">
-        <div className="grid grid-cols-1 gap-12 pb-14 md:grid-cols-2 md:gap-x-16 lg:grid-cols-[2fr_1fr_1.25fr] lg:gap-20 lg:pb-16">
+        <div className="grid grid-cols-1 gap-12 pb-14 md:grid-cols-2 md:gap-x-16 lg:grid-cols-[1.55fr_0.8fr_1.1fr_1fr] lg:gap-12 lg:pb-16">
           <div className="max-w-[430px] md:col-span-2 lg:col-span-1">
-            <a href="#tentang" className="inline-flex items-center gap-4" aria-label="Manazil Ibnu Abbas">
+            <Link href="/" className="inline-flex items-center gap-4" aria-label="Manazil Ibnu Abbas">
               <span className="flex h-14 w-[70px] items-center justify-center rounded-xl bg-[#f1ece9]">
                 <Image
                   src="/figma/logo.png"
@@ -64,7 +83,7 @@ export function SiteFooter() {
                 />
               </span>
               <span className="font-display text-lg font-semibold">Manazil Ibnu Abbas</span>
-            </a>
+            </Link>
             <p className="mt-6 text-sm leading-6 text-[#c9bfb5]">
               Ma’had Tahfizh Al-Qur’an setingkat SMP putra di Kota Batu yang memadukan
               Tahfizh Al-Qur’an, Bahasa Arab, ilmu syar’i, dan pendidikan formal dalam
@@ -86,6 +105,31 @@ export function SiteFooter() {
           </nav>
 
           <div>
+            <h2 className="font-display text-base font-semibold text-white">
+              Informasi Pendaftaran
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-[#c9bfb5]">
+              Hubungi panitia melalui WhatsApp untuk konsultasi pendaftaran santri baru.
+            </p>
+            <div className="mt-6 flex flex-col gap-4">
+              {registrationContacts.map((contact) => (
+                <a
+                  key={contact.name}
+                  href={contact.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group w-fit text-sm text-[#c9bfb5] transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9aa87] focus-visible:ring-offset-4 focus-visible:ring-offset-[#1e150c]"
+                >
+                  <span className="block font-semibold text-[#f1ece9] group-hover:text-white">
+                    {contact.name}
+                  </span>
+                  <span className="mt-1 block">{contact.phone}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div>
             <h2 className="font-display text-base font-semibold text-white">Ikuti Kami</h2>
             <p className="mt-3 text-sm leading-6 text-[#c9bfb5]">
               Ikuti kabar kegiatan, program, dan keseharian santri melalui media sosial kami.
@@ -95,6 +139,8 @@ export function SiteFooter() {
                 <a
                   key={social.label}
                   href={social.href}
+                  target={social.href.startsWith("http") ? "_blank" : undefined}
+                  rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="group flex w-fit items-center gap-3 text-sm text-[#c9bfb5] transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9aa87] focus-visible:ring-offset-4 focus-visible:ring-offset-[#1e150c]"
                   aria-label={social.label}
                 >
