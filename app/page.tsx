@@ -7,7 +7,7 @@ import { LatestArticles } from "@/components/latest-articles";
 import { RegistrationCta } from "@/components/registration-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { StudentLifeCarousel } from "@/components/student-life-carousel";
+import { StudentLifeGallery } from "@/components/student-life-gallery";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -426,7 +426,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <StudentLifeCarousel />
+          <StudentLifeGallery />
         </div>
       </SectionFrame>
 

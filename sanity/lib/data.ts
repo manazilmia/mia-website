@@ -7,8 +7,9 @@ import {
   articleSlugsQuery,
   latestArticlesQuery,
   kajianScheduleQuery,
+  studentLifeGalleryQuery,
 } from "./queries";
-import type { Article, ArticleSummary, Kajian } from "./types";
+import type { Article, ArticleSummary, Kajian, StudentLifeGallery } from "./types";
 
 const fetchOptions = { next: { revalidate: 60 } };
 
@@ -42,4 +43,8 @@ export function getArticleSlugs() {
 
 export function getKajianSchedule() {
   return safeFetch<Kajian[]>(kajianScheduleQuery, {}, []);
+}
+
+export function getStudentLifeGallery() {
+  return safeFetch<StudentLifeGallery | null>(studentLifeGalleryQuery, {}, null);
 }

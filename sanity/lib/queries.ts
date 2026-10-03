@@ -60,3 +60,19 @@ export const kajianScheduleQuery = defineQuery(`
     }
   }
 `);
+
+export const studentLifeGalleryQuery = defineQuery(`
+  *[_type == "studentLifeGallery"] | order(_updatedAt desc)[0] {
+    slides[] {
+      _key,
+      mediaType,
+      imageAlt,
+      youtubeUrl,
+      videoTitle,
+      image {
+        ...,
+        asset->{_type, _id, url, metadata {lqip, dimensions}}
+      }
+    }
+  }
+`);

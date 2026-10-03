@@ -71,3 +71,14 @@ export type Kajian = {
   speaker: string;
   poster: SanityImage;
 };
+
+export type StudentLifeGallery = {
+  slides?: Array<{
+    _key: string;
+    mediaType?: "image" | "video";
+    image?: SanityImage;
+    imageAlt?: string;
+    youtubeUrl?: string;
+    videoTitle?: string;
+  }>;
+};

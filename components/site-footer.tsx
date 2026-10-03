@@ -1,3 +1,5 @@
+import { Location01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,13 +15,13 @@ const footerMenu = [
 
 // Replace these placeholder anchors with the official social-media URLs.
 const socialLinks = [
-  { label: "Instagram", icon: "instagram", href: "#footer" },
+  { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/omahtahfidz.ibnuabbas/" },
   {
     label: "YouTube",
     icon: "youtube",
-    href: "https://shortlink.win/1EboE",
+    href: "https://www.youtube.com/@omahtahfidzibnuabbas6724",
   },
-  { label: "Facebook", icon: "facebook", href: "#footer" },
+  
 ];
 
 const registrationContacts = [
@@ -85,10 +87,22 @@ export function SiteFooter() {
               <span className="font-display text-lg font-semibold">Manazil Ibnu Abbas</span>
             </Link>
             <p className="mt-6 text-sm leading-6 text-[#c9bfb5]">
-              Ma’had Tahfizh Al-Qur’an setingkat SMP putra di Kota Batu yang memadukan
+              Ma’had Tahfizh Al-Qur’an setingkat SMP & SMA putra di Kota Batu yang memadukan
               Tahfizh Al-Qur’an, Bahasa Arab, ilmu syar’i, dan pendidikan formal dalam
               lingkungan yang mendukung tumbuhnya ilmu, adab, dan kemandirian.
             </p>
+            <address className="mt-5 flex items-start gap-2.5 text-sm leading-6 not-italic text-[#c9bfb5]">
+              <HugeiconsIcon
+                icon={Location01Icon}
+                size={18}
+                strokeWidth={1.8}
+                className="mt-[3px] shrink-0"
+                aria-hidden
+              />
+              <span>
+                Jl. H. Sutan Hasan Halim, Kelurahan Sisir, Kecamatan Batu, Kota Batu, Jawa Timur
+              </span>
+            </address>
           </div>
 
           <nav aria-label="Navigasi footer">
